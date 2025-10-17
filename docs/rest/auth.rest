@@ -1,0 +1,41 @@
+### Registro de Usuario
+POST http://127.0.0.1:8000/api/v1/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "email": "samu@gmail.com",
+    "password": "12345678",
+    "cpassword": "12345678"
+}
+
+### Autenticación (Login)
+POST http://127.0.0.1:8000/api/v1/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "samu@gmail.com",
+    "password": "12345678"
+}
+
+### Login con Servidor
+POST https://backapi.blumbit.net/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "admin@mail.com",
+    "password": "admin54321"
+}
+
+### Obtener el Perfil
+GET http://127.0.0.1:8000/api/v1/auth/profile
+Accept: application/json
+Authorization: Bearer 4|U15qVr7LFJEmBfKMED2HLqBX10HFeXYhEiis7VNsd880c0fc
+
+### Salir (Logout)
+POST http://127.0.0.1:8000/api/v1/auth/logout
+Accept: application/json
+Authorization: Bearer 7|ugV6ueKI8chLRB3maClIIZuKlapoBJJlrwBzeNg3895f7160

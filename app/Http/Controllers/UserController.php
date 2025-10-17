@@ -21,15 +21,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->name;
-        $email = $request->email;
-        $password = $request->password;
-        $user = User::create([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
+          $request->validate([
+            "name" => "required|string",
+            "email" => "required|email|unique:users",
+            "password" => "require"
         ]);
-        return response()->json($user);
+
+        try {
+       
+            $nombre = $request->name;
+            $correo = $request->email;
+            $password = $request->password;
+    
+            $usuario = new User();
+            $usuario->name = $nombre;
+            $usuario->email = $correo;
+            $usuario->password = $password;
+            $usuario->save();
+    
+            return response()->json(["mensaje" => "Usuario Registrado en la BD"], 200);
+        } catch (\Exception $e) {
+            return response()->json(["mensaje" => "Error del servidor", "error" => $e->getMessage()], 500);
+        }
     }
 
     /**

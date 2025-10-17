@@ -1,0 +1,39 @@
+GET http://127.0.0.1:8000/api/persona
+Accept: application/json
+Authorization: Bearer 5|6dbMQJakYT3hzwtbWTTmovxhJU846HWMc1vCOhth940be4a1
+
+### guardar
+
+POST http://127.0.0.1:8000/api/persona
+Accept: application/json
+Authorization: Bearer 5|6dbMQJakYT3hzwtbWTTmovxhJU846HWMc1vCOhth940be4a1
+Content-Type: application/json
+
+{
+    "nombres": "SIMON",
+    "apellidos": "Prueba2"
+}
+
+### guardar persona + user
+POST http://127.0.0.1:8000/api/persona/guardar-persona-user
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 5|6dbMQJakYT3hzwtbWTTmovxhJU846HWMc1vCOhth940be4a1
+
+{
+    "nombres": "DAVID",
+    "apellidos": "ApUno",
+    "email": "david@mail.com",
+    "password": "admin54321"
+}
+
+### asignar cuneta de usuario a persona
+POST http://127.0.0.1:8000/api/persona/1/adduser
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|sntQOXnIER4zDWTVDLbXG4PzgJIVAa5Q5UmfERbffc0ee853
+
+{
+    "email": "andres@mail.com",
+    "password": "andres54321"
+}
